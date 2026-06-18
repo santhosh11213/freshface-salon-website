@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshFace â€” Skin & Facial Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/services/freshface-service-category.css">
+</head>
+<body>
+<header><nav><a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a><div class="nav-links"><a href="/home/index.html">Home</a><a href="/services/index.html">Services</a><a href="/about-us/index.html">About Us</a><a href="/gallery/index.html">Gallery</a><a href="/contact-us/index.html">Contact</a><a href="/contact-us/index.html" class="btn-book">Book Now</a></div></nav></header>
+<div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+<section class="hero"><div class="breadcrumb"><a href="/services/index.html">Services</a> / <span id="categoryName"></span></div><h1 id="heroTitle"></h1><p class="hero-desc" id="heroDescription"></p><div class="hero-meta"><div class="meta-item"><span class="meta-label">Specialisms</span><span class="meta-value" id="specialismCount">0</span></div><div class="meta-item"><span class="meta-label">Total Services</span><span class="meta-value" id="serviceCount">0+</span></div><div class="meta-item"><span class="meta-label">For</span><span class="meta-value" id="forValue">Men & Women</span></div></div></section>
+<div class="filter-bar" id="filterBar"></div>
+<main class="grid-section"><div class="section-label">Explore by Specialism</div><div class="cards-grid" id="cardsGrid"></div></main>
+<footer><div class="footer-logo"><span>Fresh</span><span>Face</span></div><p>Â© 2026 FreshFace. Expert care for everyone.</p><a href="/contact-us/index.html" class="btn-book">Book Now</a></footer>
+<script>
+window.FF_SERVICE_PAGE = {
+  title: 'Skin & Facial',
+  tag: 'Skin',
+  forText: 'Men & Women',
+  description: 'Premium facials, skin glow treatments, cleanups, de-tan care, and advanced facial rituals for fresh, healthy skin.',
+  groups: [
+    { title: 'Signature Facials', short: 'Facials', description: 'Premium facials designed to refresh and brighten your skin.', services: [
+      { name: 'Men Oxygenating Facial', duration: '60 min' },
+      { name: 'Men O3 Advanced Professional Facial', duration: '75 min' },
+      { name: 'Women Oxygenating Facial', duration: '60 min' },
+      { name: 'Women Organic Skin Glow Facial', duration: '75 min' },
+      { name: 'Women Anti-Ageing Hydra Facial', duration: '90 min' }
+    ] },
+    { title: 'Cleanups', short: 'Cleanup', description: 'Everyday skin maintenance for clear and refreshed skin.', services: [
+      { name: 'Basic Face Cleanup', duration: '30 min' },
+      { name: 'Deep Cleansing Cleanup', duration: '45 min' },
+      { name: 'Blackhead & Whitehead Cleanup', duration: '45 min' },
+      { name: 'Sensitive Skin Cleanup', duration: '40 min' }
+    ] },
+    { title: 'De-Tan Care', short: 'De-Tan', description: 'Targeted de-tan care for face, neck, hands, and visible glow.', services: [
+      { name: 'Face De-Tan', duration: '30 min' },
+      { name: 'Neck De-Tan', duration: '20 min' },
+      { name: 'Hands De-Tan', duration: '30 min' },
+      { name: 'Face & Neck De-Tan Combo', duration: '45 min' }
+    ] },
+    { title: 'Glow Treatments', short: 'Glow', description: 'Treatments for event-ready brightness and hydrated skin.', services: [
+      { name: 'Instant Glow Facial', duration: '45 min' },
+      { name: 'Skin Brightening Therapy', duration: '60 min' },
+      { name: 'Hydration Facial', duration: '60 min' },
+      { name: 'Pre-Event Glow Care', duration: '75 min' }
+    ] }
+  ]
+};
+</script>
+<script type="module" src="/freshface-theme.js"></script>
+<script type="module" src="/services/freshface-service-category.js"></script>
+</body>
+</html>

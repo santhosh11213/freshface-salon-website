@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshFace â€” Makeup Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/services/freshface-service-category.css">
+</head>
+<body>
+<header><nav><a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a><div class="nav-links"><a href="/home/index.html">Home</a><a href="/services/index.html">Services</a><a href="/about-us/index.html">About Us</a><a href="/gallery/index.html">Gallery</a><a href="/contact-us/index.html">Contact</a><a href="/contact-us/index.html" class="btn-book">Book Now</a></div></nav></header>
+<div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+<section class="hero"><div class="breadcrumb"><a href="/services/index.html">Services</a> / <span id="categoryName"></span></div><h1 id="heroTitle"></h1><p class="hero-desc" id="heroDescription"></p><div class="hero-meta"><div class="meta-item"><span class="meta-label">Specialisms</span><span class="meta-value" id="specialismCount">0</span></div><div class="meta-item"><span class="meta-label">Total Services</span><span class="meta-value" id="serviceCount">0+</span></div><div class="meta-item"><span class="meta-label">For</span><span class="meta-value" id="forValue">Men & Women</span></div></div></section>
+<div class="filter-bar" id="filterBar"></div>
+<main class="grid-section"><div class="section-label">Explore by Specialism</div><div class="cards-grid" id="cardsGrid"></div></main>
+<footer><div class="footer-logo"><span>Fresh</span><span>Face</span></div><p>Â© 2026 FreshFace. Expert care for everyone.</p><a href="/contact-us/index.html" class="btn-book">Book Now</a></footer>
+<script>
+window.FF_SERVICE_PAGE = {
+  title: 'Makeup',
+  tag: 'Makeup',
+  forText: 'Men & Women',
+  description: 'FreshFace makeup services cover party looks, light makeup, bridal-ready finishes, groom makeup, and mehendi.',
+  groups: [
+    { title: 'Party Makeup', short: 'Party', description: 'Polished party makeup for men and women.', services: [
+      { name: 'Men Party Makeup', duration: '45 min' },
+      { name: 'Men Light Makeup', duration: '30 min' },
+      { name: 'Women Luxurious MAC Party Makeup', duration: '90 min' },
+      { name: 'Women Luxurious MAC Light Makeup', duration: '60 min' }
+    ] },
+    { title: 'Bridal Makeup', short: 'Bridal', description: 'Complete bridal and red-carpet makeup finishes.', services: [
+      { name: 'Women Complete HD Makeup for Bride', duration: '2.5 hrs' },
+      { name: 'Women Flawless Red Carpet Airbrush Makeup', duration: '2 hrs' },
+      { name: 'Women Muhurtham Bridal Makeup', duration: '2 hrs' },
+      { name: 'Bridal Touch-Up Session', duration: '45 min' }
+    ] },
+    { title: 'Groom Makeup', short: 'Groom', description: 'Clean, camera-ready makeup for groom and reception looks.', services: [
+      { name: 'Men Complete HD Makeup for Groom', duration: '90 min' },
+      { name: 'Men Reception Makeup', duration: '60 min' },
+      { name: 'Groom Light Makeup', duration: '45 min' }
+    ] },
+    { title: 'Mehendi', short: 'Mehendi', description: 'Simple and organic mehendi for events and bridal add-ons.', services: [
+      { name: 'Women Simple Arabic Mehendi', duration: '45 min' },
+      { name: 'Women Muhurtham Bridal Mehendi', duration: '2 hrs' },
+      { name: 'Organic Mehendi Add-On', duration: '45 min' }
+    ] }
+  ]
+};
+</script>
+<script type="module" src="/freshface-theme.js"></script>
+<script type="module" src="/services/freshface-service-category.js"></script>
+</body>
+</html>

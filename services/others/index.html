@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshFace â€” Other Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/services/freshface-service-category.css">
+</head>
+<body>
+<header><nav><a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a><div class="nav-links"><a href="/home/index.html">Home</a><a href="/services/index.html">Services</a><a href="/about-us/index.html">About Us</a><a href="/gallery/index.html">Gallery</a><a href="/contact-us/index.html">Contact</a><a href="/contact-us/index.html" class="btn-book">Book Now</a></div></nav></header>
+<div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+<section class="hero"><div class="breadcrumb"><a href="/services/index.html">Services</a> / <span id="categoryName"></span></div><h1 id="heroTitle"></h1><p class="hero-desc" id="heroDescription"></p><div class="hero-meta"><div class="meta-item"><span class="meta-label">Specialisms</span><span class="meta-value" id="specialismCount">0</span></div><div class="meta-item"><span class="meta-label">Total Services</span><span class="meta-value" id="serviceCount">0+</span></div><div class="meta-item"><span class="meta-label">For</span><span class="meta-value" id="forValue">Men & Women</span></div></div></section>
+<div class="filter-bar" id="filterBar"></div>
+<main class="grid-section"><div class="section-label">Explore by Specialism</div><div class="cards-grid" id="cardsGrid"></div></main>
+<footer><div class="footer-logo"><span>Fresh</span><span>Face</span></div><p>Â© 2026 FreshFace. Expert care for everyone.</p><a href="/contact-us/index.html" class="btn-book">Book Now</a></footer>
+<script>
+window.FF_SERVICE_PAGE = {
+  title: 'Others',
+  tag: 'Others',
+  forText: 'Men & Women',
+  description: 'Explore FreshFace finishing services including nails, grooming, shave, beard design, polish, manicure, and pedicure.',
+  groups: [
+    { title: 'Nails', short: 'Nails', description: 'Cut, file, nail polish, manicure, and pedicure care.', services: [
+      { name: 'Women Cut & File', duration: '20 min' },
+      { name: 'Women Change of Nail Polish', duration: '15 min' },
+      { name: 'Men Krystal Manicure', duration: '30 min' },
+      { name: 'Women Luxury Manicure', duration: '45 min' }
+    ] },
+    { title: 'Pedicure', short: 'Pedicure', description: 'Relaxing and premium foot care services.', services: [
+      { name: 'Men Icecream Bath Bomb Pedicure', duration: '45 min' },
+      { name: 'Women Icecream Bathbomb Pedicure', duration: '60 min' },
+      { name: 'Women Paraffin Wax Pedicure', duration: '60 min' }
+    ] },
+    { title: 'Shave & Beard', short: 'Beard', description: 'Clean shaves, beard designs, and everyday grooming.', services: [
+      { name: 'Men Head Shave', duration: '30 min' },
+      { name: 'Men Foam Shave', duration: '15 min' },
+      { name: 'Men Beard Design', duration: '20 min' },
+      { name: 'Men Advanced Beard Design', duration: '30 min' }
+    ] },
+    { title: 'Finishing', short: 'Finish', description: 'Quick finishing touches before events or regular outings.', services: [
+      { name: 'Quick Grooming Finish', duration: '15 min' },
+      { name: 'Event Ready Touch-Up', duration: '20 min' },
+      { name: 'Basic FreshFace Cleanup Add-On', duration: '20 min' }
+    ] }
+  ]
+};
+</script>
+<script type="module" src="/freshface-theme.js"></script>
+<script type="module" src="/services/freshface-service-category.js"></script>
+</body>
+</html>

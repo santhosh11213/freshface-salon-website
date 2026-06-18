@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshFace â€” Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#8DC455;
+    --green-dark:#658D3D;
+    --black:#0D0D0D;
+    --charcoal:#1F1F1F;
+    --surface:#161616;
+    --cream:#F5F5F0;
+    --gray:#A8B5A0;
+    --line:rgba(168,181,160,0.22);
+    --display:'Fraunces', serif;
+    --body:'Manrope', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:var(--body);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(13,13,13,.94);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(12px);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 8vw;
+  }
+  .logo{
+    font-family:var(--display);
+    font-size:1.65rem;
+    font-weight:700;
+    line-height:1;
+  }
+  .logo span:first-child{color:var(--green);}
+  .nav-links{
+    display:flex;
+    gap:38px;
+    align-items:center;
+  }
+  .nav-links a{
+    color:var(--cream);
+    font-size:.95rem;
+    font-weight:600;
+    position:relative;
+    padding:6px 0;
+  }
+  .nav-links a.active{color:var(--cream);}
+  .nav-links a:not(.btn)::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:var(--green);
+    transition:width .25s ease;
+  }
+  .nav-links a:not(.btn):hover::after,
+  .nav-links a:not(.btn).active::after{width:0;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 36px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:1rem;
+    background:var(--green);
+    color:var(--cream);
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn:hover{background:var(--green-dark);transform:translateY(-2px);}
+  .hero-bar{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:var(--black);
+    padding:15px 8vw;
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  main{padding:70px 8vw 90px;}
+  .section-head{
+    max-width:760px;
+    margin-bottom:42px;
+  }
+  .eyebrow{
+    color:var(--green);
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  h1{
+    font-family:var(--display);
+    font-size:clamp(2.4rem,5vw,4.2rem);
+    line-height:1.08;
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  h1 span{color:var(--green);font-style:italic;}
+  .lead{
+    color:var(--gray);
+    font-size:1.05rem;
+    line-height:1.75;
+    max-width:620px;
+  }
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .service-card{
+    display:block;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    min-height:450px;
+    color:inherit;
+    transition:border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+  }
+  .service-card:hover{
+    border-color:var(--green);
+    transform:translateY(-6px);
+    box-shadow:0 18px 48px rgba(0,0,0,.24);
+  }
+  .service-visual{
+    height:240px;
+    background:linear-gradient(135deg, rgba(141,196,85,.92), rgba(101,141,61,.9));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--cream);
+    font-family:var(--display);
+    font-size:2.8rem;
+    font-weight:700;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .service-card:nth-child(2n) .service-visual{
+    background:linear-gradient(135deg, var(--charcoal), var(--black));
+    color:var(--green);
+  }
+  .service-body{padding:22px;}
+  .service-title{
+    font-family:var(--display);
+    color:var(--cream);
+    font-size:1.35rem;
+    line-height:1.2;
+    margin-bottom:8px;
+  }
+  .service-desc{
+    color:var(--gray);
+    font-size:.94rem;
+    line-height:1.65;
+    margin-bottom:16px;
+  }
+  @media (max-width:960px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{gap:18px;}
+  }
+  @media (max-width:680px){
+    nav{align-items:flex-start;gap:16px;flex-direction:column;}
+    .nav-links{flex-wrap:wrap;gap:14px;}
+    .services-grid{grid-template-columns:1fr;}
+    main{padding:54px 6vw 76px;}
+    .hero-bar{padding:13px 6vw;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a>
+    <div class="nav-links">
+      <a href="/home/index.html">Home</a>
+      <a href="/services/index.html">Services</a>
+      <a href="/about-us/index.html">About Us</a>
+      <a href="/gallery/index.html">Gallery</a>
+      <a href="/contact-us/index.html">Contact</a>
+      <a href="/contact-us/index.html" class="btn">Book Now</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero-bar">Our Services â€” Expert care for everyone</div>
+
+<main>
+  <div class="section-head">
+    <div class="eyebrow">What We Offer</div>
+    <h1>Our <span>Services</span></h1>
+    <p class="lead">From everyday haircuts to full bridal makeovers, FreshFace brings expert care for men and women with premium products and a calm salon experience.</p>
+  </div>
+
+  <div class="services-grid">
+    <a class="service-card" href="/services/hair/index.html" aria-label="View Hair services">
+      <div class="service-visual">01</div>
+      <div class="service-body">
+        <h2 class="service-title">Hair</h2>
+        <p class="service-desc">Cuts, styling, colouring, keratin, botox, spa, scalp care, and hair transformation services.</p>
+      </div>
+    </a>
+
+    <a class="service-card" href="/services/skin-facial/index.html" aria-label="View Skin and Facial services">
+      <div class="service-visual">02</div>
+      <div class="service-body">
+        <h2 class="service-title">Skin &amp; Facial</h2>
+        <p class="service-desc">Facials, cleanups, de-tan, oxygenating care, skin glow, and advanced facial treatments.</p>
+      </div>
+    </a>
+
+    <a class="service-card" href="/services/freshface-herbals/index.html" aria-label="View FreshFace Herbals services">
+      <div class="service-visual">03</div>
+      <div class="service-body">
+        <h2 class="service-title">FreshFace Herbals</h2>
+        <p class="service-desc">Organic and herbal care with hibiscus, skin softening, natural glow, and calming rituals.</p>
+      </div>
+    </a>
+
+    <a class="service-card" href="/services/makeup/index.html" aria-label="View Makeup services">
+      <div class="service-visual">04</div>
+      <div class="service-body">
+        <h2 class="service-title">Makeup</h2>
+        <p class="service-desc">Party makeup, light makeup, MAC makeup, bridal-ready looks, and mehendi services.</p>
+      </div>
+    </a>
+
+    <a class="service-card" href="/services/others/index.html" aria-label="View Other services">
+      <div class="service-visual">05</div>
+      <div class="service-body">
+        <h2 class="service-title">Others</h2>
+        <p class="service-desc">Nails, manicure, pedicure, grooming, shave, beard design, and everyday finishing services.</p>
+      </div>
+    </a>
+  </div>
+</main>
+<script type="module" src="/freshface-theme.js"></script>
+</body>
+</html>

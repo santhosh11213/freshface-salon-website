@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us â€” FreshFace Unisex Salon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#8DC455;
+    --green-dark:#658D3D;
+    --black:#0D0D0D;
+    --charcoal:#1F1F1F;
+    --surface:#161616;
+    --cream:#F5F5F0;
+    --gray:#A8B5A0;
+    --line:rgba(168,181,160,0.22);
+    --display:'Fraunces', serif;
+    --body:'Manrope', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:var(--body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(13,13,13,.94);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(12px);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 8vw;
+  }
+  .logo{
+    font-family:var(--display);
+    font-size:1.65rem;
+    font-weight:700;
+    line-height:1;
+  }
+  .logo span:first-child{color:var(--green);}
+  .nav-links{display:flex;gap:38px;align-items:center;}
+  .nav-links a{
+    color:var(--cream);
+    font-size:.95rem;
+    font-weight:600;
+    position:relative;
+    padding:6px 0;
+  }
+  .nav-links a.active{color:var(--cream);}
+  .nav-links a:not(.btn)::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:2px;
+    background:var(--green);
+    transition:width .25s ease;
+  }
+  .nav-links a:not(.btn):hover::after,
+  .nav-links a:not(.btn).active::after{width:0;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 36px;
+    border-radius:999px;
+    background:var(--green);
+    color:var(--cream);
+    font-weight:800;
+    font-size:1rem;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn:hover{background:var(--green-dark);transform:translateY(-2px);}
+  main{padding:80px 8vw 90px;}
+  .hero{max-width:860px;margin-bottom:58px;}
+  .eyebrow{
+    color:var(--green);
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  h1,h2,h3{font-family:var(--display);line-height:1.12;}
+  h1{
+    font-size:clamp(2.5rem,5vw,4.2rem);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  h1 span,h2 span{color:var(--green);font-style:italic;}
+  .lead{
+    color:var(--gray);
+    font-size:1.1rem;
+    max-width:680px;
+  }
+  .divider{height:1px;background:var(--line);margin:56px 0;}
+  .section{max-width:1080px;}
+  .section h2{
+    font-size:clamp(1.8rem,3vw,2.6rem);
+    margin-bottom:18px;
+  }
+  .section p{
+    color:var(--gray);
+    max-width:760px;
+    margin-bottom:16px;
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    margin-top:34px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px;
+  }
+  .card h3{font-size:1.25rem;margin-bottom:10px;color:var(--cream);}
+  .belief{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:var(--cream);
+    border-radius:24px;
+    padding:46px;
+    max-width:980px;
+  }
+  .belief blockquote{
+    font-family:var(--display);
+    font-size:clamp(1.45rem,3vw,2.2rem);
+    line-height:1.35;
+  }
+  .locations{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    margin-top:28px;
+  }
+  .location{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+  }
+  .location span{
+    display:inline-flex;
+    color:var(--green);
+    font-size:.75rem;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .cta{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+  @media (max-width:860px){
+    nav{align-items:flex-start;gap:16px;flex-direction:column;}
+    .nav-links{flex-wrap:wrap;gap:14px;}
+    .cards,.locations{grid-template-columns:1fr;}
+    main{padding:58px 6vw 80px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a>
+    <div class="nav-links">
+      <a href="/home/index.html">Home</a>
+      <a href="/services/index.html">Services</a>
+      <a href="/about-us/index.html">About Us</a>
+      <a href="/gallery/index.html">Gallery</a>
+      <a href="/contact-us/index.html">Contact</a>
+      <a href="/contact-us/index.html" class="btn">Book Now</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">About FreshFace</div>
+    <h1>We Didn't Start a Salon.<br>We Fixed <span>What Was Wrong</span> With One.</h1>
+    <p class="lead">FreshFace was built out of frustration with rushed consultations, long waits, and inconsistent salon experiences. We created a calmer, cleaner, more reliable salon for everyone.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="eyebrow">How It Started</div>
+    <h2>A Developer Walked Into a Salon. And Kept Noticing Things.</h2>
+    <p>Our founder is a software developer who kept seeing the same problems as a regular salon client: unclear waits, quick consultations, and a gap between what was promised and what happened in the chair.</p>
+    <p>So FreshFace was built with a better system: smoother booking, proper consultation, clean products, and consistent care across Kumbakonam and Karikulam.</p>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Built on a System</h3>
+        <p>From booking to the final mirror moment, every step is designed to feel calm, consistent, and reliable.</p>
+      </article>
+      <article class="card">
+        <h3>People First</h3>
+        <p>Every client is treated as a person, not a queue number. We listen first, then recommend what actually fits.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="belief">
+    <blockquote>"A good salon visit shouldn't feel like a gamble. At FreshFace, consistency is not an accident. It is the whole point."</blockquote>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="eyebrow">What We Stand For</div>
+    <h2>We Run on Systems. But We Serve <span>People</span>.</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Listen Before We Touch</h3>
+        <p>Every visit starts with understanding your history, your vision, and your lifestyle.</p>
+      </article>
+      <article class="card">
+        <h3>No Upsell Pressure</h3>
+        <p>We recommend what is genuinely right for your hair, skin, or grooming needs.</p>
+      </article>
+      <article class="card">
+        <h3>Clean Products</h3>
+        <p>We care about what goes on your hair and skin as much as the final result.</p>
+      </article>
+      <article class="card">
+        <h3>Consistent Care</h3>
+        <p>The same FreshFace standard follows you across both branches.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="eyebrow">Our Outlets</div>
+    <h2>Two Towns. One Standard.</h2>
+    <div class="locations">
+      <article class="location">
+        <span>Kumbakonam</span>
+        <h3>TSR Big Street</h3>
+        <p>+91 73804 78047</p>
+        <p>freshfacekumbakonam@gmail.com</p>
+      </article>
+      <article class="location">
+        <span>Karikulam</span>
+        <h3>Near Axis Bank</h3>
+        <p>+91 63804 53804</p>
+        <p>freshfacekumbakonam@gmail.com</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section cta">
+    <h2>Come In and Feel the <span>Difference</span>.</h2>
+    <p>Book an appointment or simply walk in. Either way, we are glad you found FreshFace.</p>
+    <a class="btn" href="/contact-us/index.html">Book an Appointment</a>
+  </section>
+</main>
+<script type="module" src="/freshface-theme.js"></script>
+</body>
+</html>
