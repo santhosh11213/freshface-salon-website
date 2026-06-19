@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FreshFace â€” Hair Services</title>
+<title>FreshFace - Hair Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,19 +25,19 @@
 </header>
 <div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
 <section class="hero">
-  <div class="breadcrumb"><a href="/services/index.html">Services</a> / <span id="categoryName">Hair</span></div>
-  <h1 id="heroTitle">Hair <em>Services</em></h1>
-  <p class="hero-desc" id="heroDescription"></p>
-  <div class="hero-meta">
+  <div class="breadcrumb hero-load" data-delay="0"><a href="/services/index.html">Services</a> / <span id="categoryName">Hair</span></div>
+  <h1 id="heroTitle" class="hero-load" data-delay="120">Hair <em>Services</em></h1>
+  <p class="hero-desc hero-load" id="heroDescription" data-delay="240"></p>
+  <div class="hero-meta hero-load" data-delay="360">
     <div class="meta-item"><span class="meta-label">Specialisms</span><span class="meta-value" id="specialismCount">0</span></div>
     <div class="meta-item"><span class="meta-label">Total Services</span><span class="meta-value" id="serviceCount">0+</span></div>
     <div class="meta-item"><span class="meta-label">For</span><span class="meta-value" id="forValue">Men & Women</span></div>
   </div>
 </section>
-<div class="filter-bar" id="filterBar"></div>
-<main class="grid-section">
+<div class="filter-bar hero-load" id="filterBar" data-delay="480"></div>
+<main class="grid-section reveal">
   <div class="section-label">Explore by Specialism</div>
-  <div class="cards-grid" id="cardsGrid"></div>
+  <div class="cards-grid reveal-stagger" id="cardsGrid"></div>
 </main>
 <footer>
   <div class="footer-logo"><span>Fresh</span><span>Face</span></div>

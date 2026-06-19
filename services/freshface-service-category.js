@@ -35,7 +35,7 @@ function renderFilters(groups) {
 
 function renderCards(groups) {
   document.getElementById('cardsGrid').innerHTML = groups.map((group, index) => `
-    <article class="service-card" data-cat="${escapeHtml(group.title)}">
+    <article class="service-card reveal-child" data-cat="${escapeHtml(group.title)}">
       <div class="card-index">${String(index + 1).padStart(2, '0')} — ${escapeHtml(group.short || group.title)}</div>
       <h2 class="card-title">${escapeHtml(group.title)}</h2>
       <p class="card-desc">${escapeHtml(group.description)}</p>
@@ -65,10 +65,14 @@ function renderCards(groups) {
     body.classList.toggle('open', !isOpen);
     button.classList.toggle('open', !isOpen);
   });
+
+  if (window.FreshFaceAnimations) {
+    window.FreshFaceAnimations.refresh(document.getElementById('cardsGrid'));
+  }
 }
 
 if (page) {
-  document.title = `FreshFace — ${page.title} Services`;
+  document.title = `FreshFace - ${page.title} Services`;
   document.getElementById('categoryName').textContent = page.title;
   document.getElementById('heroTitle').innerHTML = `${escapeHtml(page.title)} <em>Services</em>`;
   document.getElementById('heroDescription').textContent = page.description;
@@ -78,4 +82,7 @@ if (page) {
   renderTicker(page.groups.map(group => group.title));
   renderFilters(page.groups);
   renderCards(page.groups);
+  if (window.FreshFaceAnimations) {
+    window.FreshFaceAnimations.refresh(document);
+  }
 }

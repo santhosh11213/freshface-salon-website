@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us â€” FreshFace Unisex Salon</title>
+<title>About Us - FreshFace Unisex Salon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -150,14 +150,20 @@
     border-radius:18px;
     padding:26px;
   }
-  .location span{
-    display:inline-flex;
+  .location h3{
     color:var(--green);
-    font-size:.75rem;
+    font-size:.95rem;
     font-weight:900;
     letter-spacing:.12em;
     text-transform:uppercase;
     margin-bottom:10px;
+  }
+  .location p:first-of-type{
+    color:var(--cream);
+    font-family:var(--body);
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.4;
   }
   .cta{
     display:flex;
@@ -190,25 +196,25 @@
 
 <main>
   <section class="hero">
-    <div class="eyebrow">Why FreshFace Exists</div>
-    <h1>We Didn't Start a Salon.<br>We Fixed <span>What Was Wrong</span> With One.</h1>
-    <p class="lead">FreshFace was started by someone who noticed these patterns not as a stylist — but as a client. A software developer by background, our founder approached the salon experience the same way he'd approach a broken system: identify what's failing, understand why, and rebuild it properly.</p>
+    <div class="eyebrow hero-load" data-delay="0">Why FreshFace Exists</div>
+    <h1 class="hero-load" data-delay="120">We Didn't Start a Salon.<br>We Fixed <span>What Was Wrong</span> With One.</h1>
+    <p class="lead hero-load" data-delay="240">FreshFace was started by someone who noticed these patterns not as a stylist — but as a client. A software developer by background, our founder approached the salon experience the same way he'd approach a broken system: identify what's failing, understand why, and rebuild it properly.</p>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="eyebrow">How It Started</div>
     <h2>A Developer Walked Into a Salon. And Kept Noticing Things.</h2>
     <p>Our founder is a software developer who kept seeing the same problems as a regular salon client: unclear waits, quick consultations, and a gap between what was promised and what happened in the chair.</p>
     <p>So FreshFace was built with a better system: smoother booking, proper consultation, clean products, and consistent care across Kumbakonam and Karikulam.</p>
 
-    <div class="cards">
-      <article class="card">
+    <div class="cards reveal-stagger">
+      <article class="card reveal-child">
         <h3>Built on a System</h3>
         <p>From booking to the final mirror moment, every step is designed to feel calm, consistent, and reliable.</p>
       </article>
-      <article class="card">
+      <article class="card reveal-child">
         <h3>People First</h3>
         <p>Every client is treated as a person, not a queue number. We listen first, then recommend what actually fits.</p>
       </article>
@@ -217,29 +223,29 @@
 
   <div class="divider"></div>
 
-  <section class="belief">
+  <section class="belief reveal">
     <blockquote>"A good salon visit shouldn't feel like a gamble. At FreshFace, consistency is not an accident. It is the whole point."</blockquote>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="eyebrow">What We Stand For</div>
     <h2>We Run on Systems. But We Serve <span>People</span>.</h2>
-    <div class="cards">
-      <article class="card">
+    <div class="cards reveal-stagger">
+      <article class="card reveal-child">
         <h3>Listen Before We Touch</h3>
         <p>Every visit starts with understanding your history, your vision, and your lifestyle.</p>
       </article>
-      <article class="card">
+      <article class="card reveal-child">
         <h3>No Upsell Pressure</h3>
         <p>We recommend what is genuinely right for your hair, skin, or grooming needs.</p>
       </article>
-      <article class="card">
+      <article class="card reveal-child">
         <h3>Clean Products</h3>
         <p>We care about what goes on your hair and skin as much as the final result.</p>
       </article>
-      <article class="card">
+      <article class="card reveal-child">
         <h3>Consistent Care</h3>
         <p>The same FreshFace standard follows you across both branches.</p>
       </article>
@@ -248,19 +254,19 @@
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="eyebrow">Our Outlets</div>
     <h2>Two Towns. One Standard.</h2>
-    <div class="locations">
-      <article class="location">
-        <span>Kumbakonam</span>
-        <h3>TSR Big Street</h3>
+    <div class="locations reveal-stagger">
+      <article class="location reveal-child">
+        <h3>Kumbakonam</h3>
+        <p>TSR Big Street</p>
         <p>+91 73804 78047</p>
         <p>freshfacekumbakonam@gmail.com</p>
       </article>
-      <article class="location">
-        <span>Karikulam</span>
-        <h3>Near Axis Bank</h3>
+      <article class="location reveal-child">
+        <h3>Karikulam</h3>
+        <p>Near Axis Bank</p>
         <p>+91 63804 53804</p>
         <p>freshfacekumbakonam@gmail.com</p>
       </article>
@@ -269,7 +275,7 @@
 
   <div class="divider"></div>
 
-  <section class="section cta">
+  <section class="section cta reveal">
     <h2>Come In and Feel the <span>Difference</span>.</h2>
     <p>Book an appointment or simply walk in. Either way, we are glad you found FreshFace.</p>
     <a class="btn" href="/contact-us/index.html">Book an Appointment</a>
