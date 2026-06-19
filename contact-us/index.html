@@ -1,1 +1,826 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FreshFace - Contact Us</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>:root{--green:#8DC455;--green-dark:#658D3D;--black:#0D0D0D;--charcoal:#1F1F1F;--surface:#161616;--cream:#F5F5F0;--gray:#A8B5A0;--line:rgba(168,181,160,.22);--display:Fraunces,serif;--body:Manrope,sans-serif}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--black);color:var(--cream);font-family:var(--body);line-height:1.6}a{text-decoration:none;color:inherit}header{position:sticky;top:0;z-index:1000;background:rgba(13,13,13,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 8vw}.logo{font-family:var(--display);font-size:1.65rem;font-weight:700}.logo span:first-child{color:var(--green)}.nav-links{display:flex;gap:38px;align-items:center}.nav-links a{color:var(--cream);font-size:.95rem;font-weight:600;padding:6px 0}.btn{display:inline-flex;padding:16px 36px;border-radius:999px;background:var(--green);color:var(--cream);font-weight:800}main{padding:80px 8vw}.eyebrow{color:var(--green);font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}h1{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);margin-bottom:18px}h1 span{color:var(--green);font-style:italic}.lead{color:var(--gray);max-width:650px;margin-bottom:34px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{min-height:210px;border:1px solid var(--line);border-radius:18px;background:var(--surface);display:flex;align-items:end;padding:22px;color:var(--cream);background-image:linear-gradient(135deg,rgba(141,196,85,.78),rgba(13,13,13,.35))}@media(max-width:760px){nav{align-items:flex-start;gap:16px;flex-direction:column}.nav-links{flex-wrap:wrap;gap:14px}main{padding:58px 6vw}}</style></head><body><header><nav><a class="logo" href="/home/index.html"><span>Fresh</span><span>Face</span></a><div class="nav-links"><a href="/home/index.html">Home</a><a href="/services/index.html">Services</a><a href="/about-us/index.html">About Us</a><a href="/gallery/index.html">Gallery</a><a href="/contact-us/index.html">Contact</a><a href="/contact-us/index.html" class="btn">Book Now</a></div></nav></header><main><div class="eyebrow hero-load" data-delay="0">Get In Touch</div><h1 class="hero-load" data-delay="120">Contact <span>FreshFace</span></h1><p class="lead hero-load" data-delay="240">Walk in, call, or book online. Choose your preferred branch and our team will help you confirm your appointment.</p><div class="grid reveal-stagger"><div class="card reveal-child"><div><strong>Kumbakonam</strong><br>+91 73804 78047<br>TSR Big Street</div></div><div class="card reveal-child"><div><strong>Karikulam</strong><br>+91 63804 53804<br>Near Axis Bank</div></div><a class="card reveal-child" href="/home/index.html#contact"><div><strong>Book Appointment</strong><br>Open booking form</div></a></div></main><script type="module" src="/freshface-theme.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - FreshFace Unisex Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #111111;
+      --bg-card:    #1a1a1a;
+      --bg-input:   #1e1e1e;
+      --green:      #7eb93f;
+      --green-lite: #a8e63d;
+      --green-dark: #4a7a1e;
+      --green-glow: rgba(126,185,63,0.08);
+      --white:      #ffffff;
+      --muted:      #888888;
+      --border:     #2a2a2a;
+      --radius:     14px;
+      --font:       'Inter', sans-serif;
+      --serif:      'Playfair Display', serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 70px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--green-lite); }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); border-bottom: 2px solid var(--green-lite); padding-bottom: 2px; }
+    .btn-book { background: var(--green-lite); color: #111; font-weight: 700; font-size: 0.85rem; padding: 10px 22px; border-radius: 30px; text-decoration: none; transition: background 0.2s; }
+    .btn-book:hover { background: var(--green); }
+
+    /* TICKER */
+    .ticker {
+      background: var(--green);
+      color: #111;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+    }
+    .ticker-inner span { margin: 0 40px; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* HERO */
+    .hero {
+      padding: 70px 60px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      max-width: 1200px;
+    }
+
+    .hero-left .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green-lite);
+      margin-bottom: 18px;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-left h1 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--green-lite);
+    }
+
+    .hero-left p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 420px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* hours strip */
+    .hours-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+    .hours-row .day { color: var(--muted); }
+    .hours-row .time { font-weight: 600; color: var(--white); }
+    .hours-row .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green-lite);
+      box-shadow: 0 0 6px var(--green-lite);
+    }
+
+    /* OUTLET CARDS */
+    .outlets {
+      padding: 0 60px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 1200px;
+    }
+
+    .outlet-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #1c2e10 0%, #141a0d 50%, var(--bg-card) 100%);
+      padding: 32px;
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+    .outlet-card:hover { border-color: var(--green); }
+
+    .outlet-card .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(168,230,61,0.12);
+      color: var(--green-lite);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .outlet-card h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .outlet-card .address {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+    }
+
+    .outlet-card .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .outlet-card .contact-line strong { color: var(--white); font-weight: 600; }
+
+    .outlet-card .icon {
+      width: 30px; height: 30px;
+      background: rgba(168,230,61,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .outlet-card .icon svg { width: 14px; height: 14px; stroke: var(--green-lite); fill: none; stroke-width: 2; }
+
+    .outlet-card .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .outlet-card .btn-call {
+      background: var(--green-lite);
+      color: #111;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .outlet-card .btn-call:hover { background: var(--green); }
+    .outlet-card .btn-map {
+      background: transparent;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .outlet-card .btn-map:hover { border-color: var(--green); color: var(--white); }
+
+    /* corner number */
+    .outlet-card .corner-num {
+      position: absolute;
+      top: 28px; right: 32px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(126,185,63,0.12);
+      line-height: 1;
+      font-family: var(--serif);
+      font-style: italic;
+    }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--border); margin: 0 60px; }
+
+    /* BOOKING FORM */
+    .form-section {
+      padding: 60px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
+      max-width: 1200px;
+      align-items: start;
+    }
+
+    .form-left .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green-lite);
+      margin-bottom: 16px;
+    }
+    .form-left h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .form-left p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* quick facts */
+    .quick-facts { display: flex; flex-direction: column; gap: 12px; }
+    .fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .fact .fact-icon {
+      width: 34px; height: 34px;
+      background: var(--green-glow);
+      border: 1px solid rgba(126,185,63,0.2);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .fact .fact-icon svg { width: 15px; height: 15px; stroke: var(--green-lite); fill: none; stroke-width: 2; }
+    .fact strong { color: var(--white); display: block; font-size: 0.88rem; margin-bottom: 1px; }
+
+    /* form */
+    .booking-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .field label .req { color: var(--green-lite); margin-left: 2px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: #444; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: var(--green); }
+    .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    .field select option { background: #1e1e1e; }
+    .field textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+
+    .full { grid-column: 1 / -1; }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .form-note span { color: var(--green-lite); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--green-lite);
+      color: #111;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .btn-submit:hover { background: var(--green); }
+
+    /* whatsapp strip */
+    .wa-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .wa-strip a {
+      color: var(--green-lite);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .wa-strip a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 46px 60px 28px;
+      margin-top: 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer-brand p { font-size: 0.85rem; color: var(--muted); margin-top: 12px; max-width: 220px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 18px; }
+    .social-row a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.78rem; transition: border-color 0.2s, color 0.2s; }
+    .social-row a:hover { border-color: var(--green-lite); color: var(--green-lite); }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { text-decoration: none; color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-outlet { margin-bottom: 18px; }
+    .footer-outlet strong { font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 3px; }
+    .footer-outlet span { font-size: 0.8rem; color: var(--muted); display: block; line-height: 1.6; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero, .outlets, .form-section { padding-left: 20px; padding-right: 20px; }
+      .divider { margin: 0 20px; }
+      .hero, .outlets, .form-section { grid-template-columns: 1fr; gap: 30px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 36px 20px 24px; }
+    }
+
+    /* CENTERED FULL PAGE CONTACT LAYOUT */
+    .hero,
+    .outlets,
+    .form-section {
+      width: min(1560px, calc(100% - 48px));
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1fr) minmax(520px, 1fr);
+      min-height: 330px;
+      align-items: center;
+      gap: 72px;
+    }
+
+    .hero-left p { max-width: 620px; }
+
+    .outlets {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      padding-bottom: 72px;
+    }
+
+    .outlet-card {
+      min-height: 320px;
+      padding: 52px;
+    }
+
+    .form-section {
+      grid-template-columns: minmax(420px, .9fr) minmax(640px, 1.1fr);
+      gap: 96px;
+      padding-top: 86px;
+      padding-bottom: 90px;
+      align-items: stretch;
+    }
+
+    .booking-form {
+      min-height: 100%;
+      align-self: stretch;
+    }
+
+    .divider {
+      width: min(1560px, calc(100% - 48px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .outlets,
+      .form-section,
+      .divider { width: calc(100% - 40px); }
+      .hero,
+      .outlets,
+      .form-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/home/index.html" class="logo">Fresh<span>Face</span></a>
+    <ul class="nav-links">
+      <li><a href="/home/index.html">Home</a></li>
+      <li><a href="/services/index.html">Services</a></li>
+      <li><a href="/about-us/index.html">About Us</a></li>
+      <li><a href="/gallery/index.html">Gallery</a></li>
+      <li><a href="/contact-us/index.html" class="active">Contact</a></li>
+    </ul>
+    <a href="/home/index.html#booking-section" class="btn-book">Book Now</a>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>Walk-ins Welcome</span>
+      <span>-</span>
+      <span>Kumbakonam - TSR Big Street</span>
+      <span>-</span>
+      <span>Karikulam - Near Axis Bank</span>
+      <span>-</span>
+      <span>Open 7 Days a Week</span>
+      <span>-</span>
+      <span>Cruelty-Free Products</span>
+      <span>-</span>
+      <span>Walk-ins Welcome</span>
+      <span>-</span>
+      <span>Kumbakonam - TSR Big Street</span>
+      <span>-</span>
+      <span>Karikulam - Near Axis Bank</span>
+      <span>-</span>
+      <span>Open 7 Days a Week</span>
+      <span>-</span>
+      <span>Cruelty-Free Products</span>
+      <span>-</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="eyebrow">Get In Touch</span>
+      <!-- EDITABLE: Headline -->
+      <h1>Contact <em>FreshFace</em></h1>
+      <!-- EDITABLE: Subtext -->
+      <p>Walk in, call, or book online. Choose your preferred branch and our team will confirm your appointment and get you sorted.</p>
+    </div>
+    <div class="hours-strip">
+      <!-- EDITABLE: Opening hours -->
+      <div class="hours-row">
+        <span class="day">Monday - Friday</span>
+        <span class="dot"></span>
+        <span class="time">9:00 AM - 8:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Saturday</span>
+        <span class="dot"></span>
+        <span class="time">9:00 AM - 8:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Sunday</span>
+        <span class="dot"></span>
+        <span class="time">9:00 AM - 6:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Public Holidays</span>
+        <span class="dot" style="background:#666; box-shadow:none;"></span>
+        <span class="time" style="color:var(--muted);">Call to Confirm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTLET CARDS -->
+  <div class="outlets">
+
+    <div class="outlet-card">
+      <span class="corner-num">01</span>
+      <span class="tag">Kumbakonam</span>
+      <h2>TSR Big Street</h2>
+      <!-- EDITABLE: Address -->
+      <p class="address">TSR Big Street, Kumbakonam,<br/>Tamil Nadu</p>
+      <div class="contact-line">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <!-- EDITABLE: Phone -->
+        <div><strong>+91 73804 78047</strong><span>Call or WhatsApp</span></div>
+      </div>
+      <div class="contact-line">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <!-- EDITABLE: Email -->
+        <div><strong>freshfacekumbakonam@gmail.com</strong></div>
+      </div>
+      <div class="actions">
+        <!-- EDITABLE: Phone number in href -->
+        <a href="tel:+917380478047" class="btn-call">Call Now</a>
+        <!-- EDITABLE: Google Maps link -->
+        <a href="https://maps.app.goo.gl/8uLWPd3qbzicV3xW9" target="_blank" rel="noopener noreferrer" class="btn-map">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="outlet-card">
+      <span class="corner-num">02</span>
+      <span class="tag">Karikulam</span>
+      <h2>Near Axis Bank</h2>
+      <!-- EDITABLE: Address -->
+      <p class="address">Near Axis Bank, Karikulam,<br/>Tamil Nadu</p>
+      <div class="contact-line">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <!-- EDITABLE: Phone -->
+        <div><strong>+91 63804 53804</strong><span>Call or WhatsApp</span></div>
+      </div>
+      <div class="contact-line">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <!-- EDITABLE: Email -->
+        <div><strong>freshfacekumbakonam@gmail.com</strong></div>
+      </div>
+      <div class="actions">
+        <!-- EDITABLE: Phone number in href -->
+        <a href="tel:+916380453804" class="btn-call">Call Now</a>
+        <!-- EDITABLE: Google Maps link -->
+        <a href="https://maps.app.goo.gl/synHnLYqkPcfBxEL7" target="_blank" rel="noopener noreferrer" class="btn-map">Get Directions</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BOOKING FORM -->
+  <section class="form-section">
+
+    <div class="form-left">
+      <div class="section-label">Book an Appointment</div>
+      <!-- EDITABLE: Form section headline -->
+      <h2>Fill in the details and we'll take it from there.</h2>
+      <p>Fields marked with <span style="color:var(--green-lite)">*</span> are required. Everything else is optional - but helps us prepare better for your visit.</p>
+
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <strong>Quick Response</strong>
+            We confirm appointments fast - usually within the hour.
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <strong>Walk-ins Also Welcome</strong>
+            No appointment? Just walk in. We'll fit you in.
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>No Prepayment Needed</strong>
+            Pay only when you visit. No deposits, no hassle.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-form">
+      <div class="form-row">
+        <div class="field">
+          <label>Your Name <span class="req">*</span></label>
+          <!-- EDITABLE: placeholder text -->
+          <input type="text" placeholder="Full name"/>
+        </div>
+        <div class="field">
+          <label>Mobile Number <span class="req">*</span></label>
+          <input type="tel" placeholder="+91 00000 00000"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Choose Outlet <span class="req">*</span></label>
+        <select>
+          <option value="" disabled selected>Select your preferred branch</option>
+          <!-- EDITABLE: Outlet options -->
+          <option>Kumbakonam - TSR Big Street</option>
+          <option>Karikulam - Near Axis Bank</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Service <span class="req">*</span></label>
+        <select>
+          <option value="" disabled selected>What would you like to book?</option>
+          <!-- EDITABLE: Service options -->
+          <optgroup label="Hair">
+            <option>Haircut &amp; Styling</option>
+            <option>Coloring</option>
+            <option>Chemical Treatment</option>
+            <option>Hair Spa</option>
+            <option>Scalp Treatment</option>
+            <option>Head Massage</option>
+            <option>Shave &amp; Beard</option>
+          </optgroup>
+          <optgroup label="Skin &amp; Facial">
+            <option>Facial</option>
+            <option>Cleanup</option>
+            <option>De-Tan</option>
+            <option>Waxing</option>
+            <option>Threading</option>
+            <option>Bleaching</option>
+            <option>Hydra Facial</option>
+            <option>Manicure</option>
+            <option>Pedicure</option>
+          </optgroup>
+          <optgroup label="Makeup">
+            <option>Bridal Makeup</option>
+            <option>Party Makeup</option>
+            <option>Mehendi</option>
+            <option>Draping &amp; Styling</option>
+          </optgroup>
+          <optgroup label="FreshFace Herbals">
+            <option>Herbal Hair Treatment</option>
+            <option>Herbal Skin Treatment</option>
+            <option>Herbal Shave</option>
+          </optgroup>
+          <optgroup label="Others">
+            <option>Reflexology</option>
+            <option>Piercing &amp; Mole Removal</option>
+            <option>Grooming</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Tell us more <span style="color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0;">(optional)</span></label>
+        <textarea placeholder="Describe what you're looking for, any concerns, or preferences - helps us prepare for your visit"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Preferred Date <span style="color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input type="date"/>
+        </div>
+        <div class="field">
+          <label>Preferred Time <span style="color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input type="time"/>
+        </div>
+      </div>
+
+      <p class="form-note"><span>*</span> Name, mobile, outlet, and service are required. We'll reach out to confirm your slot.</p>
+
+      <button class="btn-submit">Book Appointment</button>
+
+      <div class="wa-strip">
+        <span>Prefer WhatsApp?</span>
+        <!-- EDITABLE: WhatsApp number -->
+        <a href="https://wa.me/917380478047" target="_blank">Message us directly</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/home/index.html" class="logo">Fresh<span>Face</span></a>
+        <!-- FOOTER -->
+        <p>FreshFace Unisex Salon - where everyone gets the care, style, and confidence they deserve.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/freshface_kumbakonam?igsh=enl0ajhyMTdsOWU1&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+          <a href="https://www.facebook.com/profile.php?id=100095534824375" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://youtube.com/@freshfaceunisexsalon?si=aawKs8U1ShjKmrVN" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/home/index.html">Home</a></li>
+          <li><a href="/services/index.html">Services</a></li>
+          <li><a href="/about-us/index.html">About Us</a></li>
+          <li><a href="/gallery/index.html">Gallery</a></li>
+          <li><a href="/contact-us/index.html" class="active">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/hair/index.html">Hair &amp; Styling</a></li>
+          <li><a href="/services/skin-facial/index.html">Skin &amp; Facial</a></li>
+          <li><a href="/services/makeup/index.html">Makeup</a></li>
+          <li><a href="/services/freshface-herbals/index.html">FreshFace Herbals</a></li>
+          <li><a href="/services/others/index.html">Others</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Outlets</h4>
+        <div class="footer-outlet">
+          <strong>Kumbakonam - TSR Big Street</strong>
+          <span>+91 73804 78047</span>
+        </div>
+        <div class="footer-outlet">
+          <strong>Karikulam - Near Axis Bank</strong>
+          <span>+91 63804 53804</span>
+          <span>freshfacekumbakonam@gmail.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>(c) 2026 FreshFace Unisex Salon. All rights reserved.</p>
+      <p>Designed with care.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

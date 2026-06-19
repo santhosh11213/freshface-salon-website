@@ -135,7 +135,7 @@
   }
   .service-visual{
     aspect-ratio:1/1;
-    background:linear-gradient(135deg, rgba(141,196,85,.92), rgba(101,141,61,.9));
+    background:var(--charcoal);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -144,10 +144,21 @@
     font-size:2.8rem;
     font-weight:700;
     border-bottom:1px solid rgba(255,255,255,.1);
+    overflow:hidden;
+    position:relative;
   }
-  .service-card:nth-child(2n) .service-visual{
-    background:linear-gradient(135deg, var(--charcoal), var(--black));
-    color:var(--green);
+  .service-visual img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+    transform:scale(1.14);
+    transform-origin:center;
+    transition:transform .35s ease;
+  }
+  .service-card:hover .service-visual img{
+    transform:scale(1.18);
   }
   .service-body{padding:22px;}
   .service-title{
@@ -185,7 +196,7 @@
       <a href="/about-us/index.html">About Us</a>
       <a href="/gallery/index.html">Gallery</a>
       <a href="/contact-us/index.html">Contact</a>
-      <a href="/contact-us/index.html" class="btn">Book Now</a>
+      <a href="/home/index.html#booking-section" class="btn">Book Now</a>
     </div>
   </nav>
 </header>
@@ -199,7 +210,9 @@
 
   <div class="services-grid reveal-stagger">
     <a class="service-card reveal-child" href="/services/hair/index.html" aria-label="View Hair services">
-      <div class="service-visual">01</div>
+      <div class="service-visual">
+        <img src="/service-images/hair.png" alt="Hair service at FreshFace salon" loading="lazy" decoding="async">
+      </div>
       <div class="service-body">
         <h2 class="service-title">Hair</h2>
         <p class="service-desc">Cuts, styling, colouring, keratin, botox, spa, scalp care, and hair transformation services.</p>
@@ -207,7 +220,9 @@
     </a>
 
     <a class="service-card reveal-child" href="/services/skin-facial/index.html" aria-label="View Skin and Facial services">
-      <div class="service-visual">02</div>
+      <div class="service-visual">
+        <img src="/service-images/skin-facial.png" alt="Skin and facial service at FreshFace salon" loading="lazy" decoding="async">
+      </div>
       <div class="service-body">
         <h2 class="service-title">Skin &amp; Facial</h2>
         <p class="service-desc">Facials, cleanups, de-tan, oxygenating care, skin glow, and advanced facial treatments.</p>
@@ -215,7 +230,9 @@
     </a>
 
     <a class="service-card reveal-child" href="/services/freshface-herbals/index.html" aria-label="View FreshFace Herbals services">
-      <div class="service-visual">03</div>
+      <div class="service-visual">
+        <img src="/service-images/herbals.png" alt="FreshFace herbal facial service" loading="lazy" decoding="async">
+      </div>
       <div class="service-body">
         <h2 class="service-title">FreshFace Herbals</h2>
         <p class="service-desc">Organic and herbal care with hibiscus, skin softening, natural glow, and calming rituals.</p>
@@ -223,7 +240,9 @@
     </a>
 
     <a class="service-card reveal-child" href="/services/makeup/index.html" aria-label="View Makeup services">
-      <div class="service-visual">04</div>
+      <div class="service-visual">
+        <img src="/service-images/makeup.png" alt="Makeup service at FreshFace salon" loading="lazy" decoding="async">
+      </div>
       <div class="service-body">
         <h2 class="service-title">Makeup</h2>
         <p class="service-desc">Party makeup, light makeup, MAC makeup, bridal-ready looks, and mehendi services.</p>
@@ -231,7 +250,9 @@
     </a>
 
     <a class="service-card reveal-child" href="/services/others/index.html" aria-label="View Other services">
-      <div class="service-visual">05</div>
+      <div class="service-visual">
+        <img src="/service-images/others.png" alt="Grooming and other FreshFace services" loading="lazy" decoding="async">
+      </div>
       <div class="service-body">
         <h2 class="service-title">Others</h2>
         <p class="service-desc">Nails, manicure, pedicure, grooming, shave, beard design, and everyday finishing services.</p>

@@ -9,6 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/interior 2.webp">
 <link rel="preload" as="image" href="/interior 3.png">
+<link rel="preload" as="image" href="/interior 4.jpeg">
+<link rel="preload" as="image" href="/interior 5.jpeg">
+<link rel="preload" as="image" href="/interior 6.jpeg">
 <style>
   :root{
     --green:#8DC455;
@@ -213,11 +216,12 @@
   .hero-stat strong{
     display:inline-flex;
     align-items:center;
-    gap:6px;
+    gap:4px;
     color:var(--green);
     font-size:clamp(1.7rem,3vw,2.3rem);
     font-weight:900;
     line-height:1;
+    min-height:1.15em;
     white-space:nowrap;
   }
   .rating-star{
@@ -228,7 +232,8 @@
     vertical-align:middle;
   }
   .hero-stat strong .rating-star{
-    font-size:1.5em;
+    font-size:1.12em;
+    transform:translateY(-.02em);
   }
   .hero-stat > span{
     display:block;
@@ -265,7 +270,7 @@
     z-index:1;
     transform:translate3d(0,0,0);
     opacity:1;
-    transition:transform 1.05s var(--ease-out), opacity 1.05s var(--ease-out);
+    transition:transform 1.5s var(--ease-out), opacity 1.5s var(--ease-out);
     will-change:transform, opacity;
   }
   .hero-slide-frame.is-incoming{z-index:2;}
@@ -671,12 +676,13 @@
   .review-card{
     text-align:center;width:100%;
     opacity:0;transform:translate3d(105%,0,0);
-    transition:opacity 1.05s var(--ease-out), transform 1.05s var(--ease-out);
+    transition:opacity 1.5s var(--ease-out), transform 1.5s var(--ease-out);
     position:absolute;inset:0;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     padding:0;
     pointer-events:none;
   }
+  .review-card.no-transition{transition:none;}
   .review-card.is-active{
     opacity:1;transform:translate3d(0,0,0);
     pointer-events:auto;
@@ -687,9 +693,9 @@
     position:absolute;inset:0;
     pointer-events:none;
   }
-  .review-card.from-left{transform:translate3d(-105%,0,0);}
-  .review-card.from-right{transform:translate3d(105%,0,0);}
+  .review-card.from-left,
   .review-card.to-left{transform:translate3d(-105%,0,0);}
+  .review-card.from-right,
   .review-card.to-right{transform:translate3d(105%,0,0);}
   .review-rating-box{
     width:100%;
@@ -824,6 +830,16 @@
   }
   input::placeholder,textarea::placeholder{color:var(--gray);}
   input:focus,textarea:focus{outline:none;border-color:var(--green);}
+  input[type="date"],
+  input[type="time"]{
+    background:#fff;
+    color:var(--black);
+    color-scheme:light;
+  }
+  input[type="date"]:focus,
+  input[type="time"]:focus{
+    border-color:var(--green);
+  }
   textarea{resize:vertical;min-height:120px;}
 
   /* ===== FOOTER ===== */
@@ -959,7 +975,7 @@
       <a href="/about-us/index.html">About Us</a>
       <a href="/gallery/index.html" data-section="gallery">Gallery</a>
       <a href="/contact-us/index.html" data-section="contact">Contact</a>
-      <a href="/contact-us/index.html" class="btn btn-primary btn-shimmer book-trigger">Book Now</a>
+      <a href="/home/index.html#booking-section" class="btn btn-primary btn-shimmer book-trigger">Book Now</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
   </nav>
@@ -971,9 +987,9 @@
     <img src="/freshface-logo.png" alt="FreshFace Unisex Salon" class="hero-brand-logo hero-load" data-delay="0" width="450" height="181">
     <div class="eyebrow hero-load" data-delay="120">Unisex Salon &amp; Spa</div>
     <h1 class="hero-load" data-delay="240">Look Fresh.<br>Feel <span class="accent">Confident.</span></h1>
-    <p class="hero-load" data-delay="380">FreshFace Unisex Salon brings together expert stylists, premium products, and a calm, modern space â€” for hair, skin, nails, and grooming, designed for everyone.</p>
+    <p class="hero-load" data-delay="380">FreshFace Unisex Salon brings together expert stylists, premium products, and a calm, modern space - for hair, skin, nails, and grooming, designed for everyone.</p>
     <div class="hero-cta hero-load" data-delay="520">
-      <a href="/contact-us/index.html" class="btn btn-primary btn-shimmer book-trigger">Book an Appointment</a>
+      <a href="/home/index.html#booking-section" class="btn btn-primary btn-shimmer book-trigger">Book an Appointment</a>
       <a href="/services/index.html" class="btn btn-outline">Explore Services</a>
     </div>
     <div class="hero-stats hero-load" data-delay="640" aria-label="FreshFace highlights">
@@ -1030,24 +1046,24 @@
   <h2>Everything you need, under <span class="accent">one roof</span></h2>
   <div class="grid-4 reveal-stagger">
     <div class="hl-card reveal-child">
-      <span class="num">01 â€” Hair</span>
+      <span class="num">01 - Hair</span>
       <h3>Cuts &amp; Styling</h3>
       <p>Precision haircuts, blow-drys, and styling for every texture and length.</p>
     </div>
     <div class="hl-card reveal-child">
-      <span class="num">02 â€” Color</span>
+      <span class="num">02 - Color</span>
       <h3>Coloring &amp; Treatments</h3>
       <p>Global color, highlights, smoothening, and deep repair treatments.</p>
     </div>
     <div class="hl-card reveal-child">
-      <span class="num">03 â€” Skin</span>
+      <span class="num">03 - Skin</span>
       <h3>Facials &amp; Cleanups</h3>
       <p>Customized facials, cleanups, and de-tan treatments for glowing skin.</p>
     </div>
     <div class="hl-card reveal-child">
-      <span class="num">04 â€” Grooming</span>
+      <span class="num">04 - Grooming</span>
       <h3>Unisex Grooming</h3>
-      <p>Makeup, pedicure, manicure, facials, beard styling, and grooming packages â€” premium unisex care for everyone.</p>
+      <p>Makeup, pedicure, manicure, facials, beard styling, and grooming packages - premium unisex care for everyone.</p>
     </div>
   </div>
 </section>
@@ -1085,12 +1101,12 @@
         <div class="service-best-time">Weekend</div>
       </div>
       <div class="service-row reveal-child">
-        <div class="service-info"><h4>Women Protein Hair Botox Treatment â€“ Large</h4><div class="service-tags"><span class="service-tag service-tag-recommended">Highly Recommended</span></div></div>
+        <div class="service-info"><h4>Women Protein Hair Botox Treatment - Large</h4><div class="service-tags"><span class="service-tag service-tag-recommended">Highly Recommended</span></div></div>
         <div class="service-duration">3 hrs</div>
         <div class="service-best-time">Pre-Event</div>
       </div>
       <div class="service-row reveal-child">
-        <div class="service-info"><h4>Women Keratin Treatment â€“ Large</h4><div class="service-tags"><span class="service-tag service-tag-popular">Popular</span><span class="service-tag service-tag-recommended">Highly Recommended</span></div></div>
+        <div class="service-info"><h4>Women Keratin Treatment - Large</h4><div class="service-tags"><span class="service-tag service-tag-popular">Popular</span><span class="service-tag service-tag-recommended">Highly Recommended</span></div></div>
         <div class="service-duration">3.5 hrs</div>
         <div class="service-best-time">Weekend</div>
       </div>
@@ -1274,7 +1290,7 @@
     <div>
       <div class="eyebrow">About Us</div>
       <h2>A salon for <span class="accent">everyone</span>, built on care</h2>
-      <p>FreshFace Unisex Salon was founded with a simple idea â€” everyone deserves a fresh look and the confidence that comes with it. We bring together skilled stylists, premium products, and a clean, welcoming space for men and women alike.</p>
+      <p>FreshFace Unisex Salon was founded with a simple idea - everyone deserves a fresh look and the confidence that comes with it. We bring together skilled stylists, premium products, and a clean, welcoming space for men and women alike.</p>
       <p>From everyday haircuts to bridal makeovers, our team takes the time to understand what you want and deliver it with precision and care.</p>
       <div class="why-grid reveal-stagger">
         <div class="why-item reveal-child">
@@ -1357,27 +1373,27 @@
     <div class="review-stage" id="reviewStage">
       <article class="review-card is-active" data-review="0">
         <div class="review-rating-box">
-          <img src="/reviews/review-1-maha-lakshmi.png" alt="Google review by Maha Lakshmi CSE â€” 5 stars: Kokila mam service so good and women combo taken so relaxing and nice" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
+          <img src="/reviews/review-1-maha-lakshmi.png" alt="Google review by Maha Lakshmi CSE - 5 stars: Kokila mam service so good and women combo taken so relaxing and nice" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
         </div>
       </article>
       <article class="review-card" data-review="1">
         <div class="review-rating-box">
-          <img src="/reviews/review-2-abd-rahim.png" alt="Google review by Abd Rahim â€” 5 stars: Rizwan service very good. Excellent work" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
+          <img src="/reviews/review-2-abd-rahim.png" alt="Google review by Abd Rahim - 5 stars: Rizwan service very good. Excellent work" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
         </div>
       </article>
       <article class="review-card" data-review="2">
         <div class="review-rating-box">
-          <img src="/reviews/review-3-zulfeqar-ali.png" alt="Google review by Zulfeqar Ali â€” 5 stars: Very nice my hair cut and other services" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
+          <img src="/reviews/review-3-zulfeqar-ali.png" alt="Google review by Zulfeqar Ali - 5 stars: Very nice my hair cut and other services" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
         </div>
       </article>
       <article class="review-card" data-review="3">
         <div class="review-rating-box">
-          <img src="/reviews/review-4-vijay-sharvesh.png" alt="Google review by vijay sharvesh â€” 5 stars: Fantastic experience at fresh face unisex saloon" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
+          <img src="/reviews/review-4-vijay-sharvesh.png" alt="Google review by vijay sharvesh - 5 stars: Fantastic experience at fresh face unisex saloon" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
         </div>
       </article>
       <article class="review-card" data-review="4">
         <div class="review-rating-box">
-          <img src="/reviews/review-5-senthil-kumar.png" alt="Google review by Senthil Kumar â€” 5 stars: Very good service by done mr mubeen ali" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
+          <img src="/reviews/review-5-senthil-kumar.png" alt="Google review by Senthil Kumar - 5 stars: Very good service by done mr mubeen ali" class="review-shot" width="640" height="900" loading="lazy" decoding="async">
         </div>
       </article>
     </div>
@@ -1390,7 +1406,7 @@
 <section class="cta-banner reveal" id="cta">
   <h2>Ready for your <span class="accent">FreshFace</span> moment?</h2>
   <p>Book your appointment today and let our team take care of the rest.</p>
-  <a href="/contact-us/index.html" class="btn btn-outline btn-shimmer book-trigger">Book an Appointment</a>
+  <a href="/home/index.html#booking-section" class="btn btn-outline btn-shimmer book-trigger">Book an Appointment</a>
 </section>
 
 <!-- ===== CONTACT ===== -->
@@ -1398,7 +1414,7 @@
   <div class="contact-intro">
     <div class="eyebrow">Get In Touch</div>
     <h2>Visit <span class="accent">FreshFace</span></h2>
-    <p class="lead">Walk in, call, or book online â€” we're here to help you look and feel your best.</p>
+    <p class="lead">Walk in, call, or book online - we're here to help you look and feel your best.</p>
   </div>
 
   <h3 class="outlets-heading">Our <span class="accent">Outlets</span></h3>
@@ -1427,9 +1443,9 @@
       </p>
       <p class="outlet-detail">
         <strong>Working Hours</strong>
-        Mon â€“ Fri: 9:00 AM â€“ 10:00 PM Â· Sat â€“ Sun: 8:00 AM â€“ 10:00 PM
+        Mon to Fri: 9:00 AM to 10:00 PM - Sat to Sun: 8:00 AM to 10:00 PM
       </p>
-      <a class="map-link" href="https://maps.app.goo.gl/8uLWPd3qbzicV3xW9" target="_blank" rel="noopener noreferrer">Open Kumbakonam in Google Maps â†—</a>
+      <a class="map-link" href="https://maps.app.goo.gl/8uLWPd3qbzicV3xW9" target="_blank" rel="noopener noreferrer">Open Kumbakonam in Google Maps</a>
     </div>
 
     <div class="outlet-card">
@@ -1455,15 +1471,15 @@
       </p>
       <p class="outlet-detail">
         <strong>Working Hours</strong>
-        Mon â€“ Fri: 9:00 AM â€“ 10:00 PM Â· Sat â€“ Sun: 8:00 AM â€“ 10:00 PM
+        Mon to Fri: 9:00 AM to 10:00 PM - Sat to Sun: 8:00 AM to 10:00 PM
       </p>
-      <a class="map-link" href="https://maps.app.goo.gl/synHnLYqkPcfBxEL7" target="_blank" rel="noopener noreferrer">Open Karikulam in Google Maps â†—</a>
+      <a class="map-link" href="https://maps.app.goo.gl/synHnLYqkPcfBxEL7" target="_blank" rel="noopener noreferrer">Open Karikulam in Google Maps</a>
     </div>
   </div>
 
   <div class="booking-section" id="booking-section">
     <h3>Book an Appointment</h3>
-    <p>Select your preferred branch and send us your booking request â€” we'll confirm your slot shortly.</p>
+    <p>Select your preferred branch and send us your booking request - we'll confirm your slot shortly.</p>
     <div class="booking-card" id="booking-form-card">
       <form class="booking-form" id="bookingForm" onsubmit="return handleBookingSubmit(event);">
         <div class="branch-select-wrap">
@@ -1472,6 +1488,18 @@
             <option value="" disabled selected>Select Kumbakonam or Karikulam</option>
             <option value="Kumbakonam">FreshFace Kumbakonam Branch</option>
             <option value="Karikulam">FreshFace Karikulam Branch</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="serviceCategory">Service Category *</label>
+          <select id="serviceCategory" name="serviceCategory" required>
+            <option value="" disabled selected>Select service category</option>
+            <option value="Hair">Hair</option>
+            <option value="Skin & Facial">Skin &amp; Facial</option>
+            <option value="Nails">Nails</option>
+            <option value="Grooming">Grooming</option>
+            <option value="Makeup">Makeup</option>
+            <option value="Bridal">Bridal</option>
           </select>
         </div>
         <div class="form-row">
@@ -1485,7 +1513,16 @@
           </div>
         </div>
         <input type="email" name="email" placeholder="Email Address (optional)">
-        <input type="date" name="date" aria-label="Preferred date">
+        <div class="form-row">
+          <div>
+            <label class="form-label" for="appointmentDate">Preferred Date *</label>
+            <input type="date" id="appointmentDate" name="date" required>
+          </div>
+          <div>
+            <label class="form-label" for="appointmentTime">Preferred Time *</label>
+            <input type="time" id="appointmentTime" name="time" required>
+          </div>
+        </div>
         <textarea name="message" placeholder="Service you'd like to book (optional)"></textarea>
         <button type="submit" class="btn btn-primary btn-shimmer" style="align-self:center;">Book Appointment</button>
       </form>
@@ -1498,7 +1535,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-logo"><span class="fresh">Fresh</span><span class="face">Face</span></div>
-      <p>FreshFace Unisex Salon â€” where everyone gets the care, style, and confidence they deserve.</p>
+      <p>FreshFace Unisex Salon - where everyone gets the care, style, and confidence they deserve.</p>
       <div class="social-row">
         <a href="https://www.instagram.com/freshface_kumbakonam?igsh=enl0ajhyMTdsOWU1&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -1534,16 +1571,16 @@
     <div>
       <h4>Our Outlets</h4>
       <ul>
-        <li><strong style="color:var(--cream);">Kumbakonam</strong> â€” TSR Big Street</li>
+        <li><strong style="color:var(--cream);">Kumbakonam</strong> - TSR Big Street</li>
         <li><a href="tel:+917380478047">+91 73804 78047</a></li>
-        <li><strong style="color:var(--cream);">Karikulam</strong> â€” Near Axis Bank</li>
+        <li><strong style="color:var(--cream);">Karikulam</strong> - Near Axis Bank</li>
         <li><a href="tel:+916380453804">+91 63804 53804</a></li>
         <li><a href="mailto:freshfacekumbakonam@gmail.com">freshfacekumbakonam@gmail.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>Â© 2026 FreshFace Unisex Salon. All rights reserved.</span>
+    <span>(c) 2026 FreshFace Unisex Salon. All rights reserved.</span>
     <span>Designed with care.</span>
   </div>
 </footer>
@@ -1629,7 +1666,7 @@
   }
   document.querySelectorAll('.reveal-stagger').forEach(applyStaggerDelays);
 
-  // Intersection Observer â€” scroll reveal
+  // Intersection Observer - scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -1767,7 +1804,7 @@
     animateCursor();
   }
 
-  // Nav logo smile â€” draw leftâ†’right on hover / mouse drag, no scroll jump on click
+  // Nav logo smile - draw left to right on hover / mouse drag, no scroll jump on click
   const navLogo = document.getElementById('navLogo');
   let smilePlaying = false;
   let smileCooldown = false;
@@ -1837,11 +1874,22 @@
   let reviewIndex = 0;
   let reviewAnimating = false;
   let reviewTimer = null;
+  let reviewCleanupTimer = null;
+  let pendingReviewDirection = null;
+  const reviewMotionClasses = ['is-entering', 'is-exiting', 'from-left', 'from-right', 'to-left', 'to-right', 'no-transition'];
+
+  function resetReviewCard(card) {
+    card.classList.remove(...reviewMotionClasses);
+  }
 
   function showReview(index, direction) {
     if (!reviewCards.length) return;
     const nextIndex = (index + reviewCards.length) % reviewCards.length;
-    if (nextIndex === reviewIndex || reviewAnimating) return;
+    if (nextIndex === reviewIndex) return;
+    if (reviewAnimating) {
+      pendingReviewDirection = direction;
+      return;
+    }
 
     const currentCard = reviewCards[reviewIndex];
     const nextCard = reviewCards[nextIndex];
@@ -1857,8 +1905,35 @@
     }
 
     reviewAnimating = true;
-    nextCard.classList.remove('to-left', 'to-right', 'from-left', 'from-right', 'is-exiting');
-    nextCard.classList.add('is-entering', enterClass);
+    if (reviewCleanupTimer) clearTimeout(reviewCleanupTimer);
+
+    reviewCards.forEach((card, cardIndex) => {
+      resetReviewCard(card);
+      if (cardIndex !== reviewIndex) card.classList.remove('is-active');
+    });
+
+    nextCard.classList.add('no-transition', 'is-entering', enterClass);
+    void nextCard.offsetWidth;
+    nextCard.classList.remove('no-transition');
+
+    function finishTransition() {
+      if (!reviewAnimating) return;
+      if (reviewCleanupTimer) clearTimeout(reviewCleanupTimer);
+      currentCard.removeEventListener('transitionend', finishTransition);
+      currentCard.classList.remove('is-active');
+      resetReviewCard(currentCard);
+      resetReviewCard(nextCard);
+      nextCard.classList.add('is-active');
+      reviewIndex = nextIndex;
+      reviewAnimating = false;
+      if (pendingReviewDirection) {
+        const queuedDirection = pendingReviewDirection;
+        pendingReviewDirection = null;
+        showReview(reviewIndex + (queuedDirection === 'prev' ? -1 : 1), queuedDirection);
+      }
+    }
+
+    currentCard.addEventListener('transitionend', finishTransition, { once: true });
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -1868,12 +1943,7 @@
       });
     });
 
-    setTimeout(() => {
-      currentCard.classList.remove('is-active', 'is-exiting', exitClass);
-      nextCard.classList.remove('is-entering');
-      reviewIndex = nextIndex;
-      reviewAnimating = false;
-    }, 1100);
+    reviewCleanupTimer = setTimeout(finishTransition, 1700);
   }
 
   function restartReviewAuto() {
@@ -1888,7 +1958,7 @@
     restartReviewAuto();
   }
 
-  // Book triggers â€” scroll to single booking form
+  // Book triggers - scroll to single booking form
   const bookTriggers = document.querySelectorAll('.book-trigger');
   const bookingSection = document.getElementById('booking-section');
   const bookingFormCard = document.getElementById('booking-form-card');
@@ -1911,11 +1981,19 @@
     e.preventDefault();
     const form = e.target;
     const branch = form.branch.value;
+    const serviceCategory = form.serviceCategory.value;
     const name = form.name.value.trim();
     const phone = form.phone.value.trim();
+    const appointmentDate = form.date.value;
+    const appointmentTime = form.time.value;
     if (!branch) {
-      alert('Please choose a branch â€” Kumbakonam or Karikulam.');
+      alert('Please choose a branch - Kumbakonam or Karikulam.');
       form.branch.focus();
+      return false;
+    }
+    if (!serviceCategory) {
+      alert('Please choose a service category.');
+      form.serviceCategory.focus();
       return false;
     }
     if (!name) {
@@ -1928,7 +2006,17 @@
       form.phone.focus();
       return false;
     }
-    alert('Thank you! Your appointment request for FreshFace ' + branch + ' has been received. We will call you shortly to confirm.');
+    if (!appointmentDate) {
+      alert('Please choose your preferred appointment date.');
+      form.date.focus();
+      return false;
+    }
+    if (!appointmentTime) {
+      alert('Please choose your preferred appointment time.');
+      form.time.focus();
+      return false;
+    }
+    alert('Thank you! Your ' + serviceCategory + ' appointment request for FreshFace ' + branch + ' on ' + appointmentDate + ' at ' + appointmentTime + ' has been received. We will call you shortly to confirm.');
     form.reset();
     return false;
   };
@@ -1947,7 +2035,10 @@
     const slides = [
       { src: '/interior.webp', alt: 'FreshFace Unisex Salon interior image 1' },
       { src: '/interior 2.webp', alt: 'FreshFace Unisex Salon interior image 2' },
-      { src: '/interior 3.png', alt: 'FreshFace Unisex Salon interior image 3' }
+      { src: '/interior 3.png', alt: 'FreshFace Unisex Salon interior image 3' },
+      { src: '/interior 4.jpeg', alt: 'FreshFace Unisex Salon interior image 4' },
+      { src: '/interior 5.jpeg', alt: 'FreshFace Unisex Salon interior image 5' },
+      { src: '/interior 6.jpeg', alt: 'FreshFace Unisex Salon interior image 6' }
     ];
 
     // Preload for snappy switching
@@ -1959,6 +2050,7 @@
     let idx = 0;
     let isAnimating = false;
     let autoTimer = null;
+    let pendingHeroDirection = null;
 
     const buildSlideFrame = (slide, positionClass) => {
       const frame = document.createElement('div');
@@ -1989,7 +2081,10 @@
         setFrameContent(currentFrame, slides[idx]);
         return;
       }
-      if (isAnimating) return;
+      if (isAnimating) {
+        pendingHeroDirection = direction;
+        return;
+      }
       isAnimating = true;
 
       const exitClass = direction === 'prev' ? 'is-off-right' : 'is-off-left';
@@ -2016,7 +2111,12 @@
         currentFrame = incomingFrame;
         idx = next;
         isAnimating = false;
-      }, 1100);
+        if (pendingHeroDirection) {
+          const queuedDirection = pendingHeroDirection;
+          pendingHeroDirection = null;
+          setIndexWithSwipe(idx + (queuedDirection === 'prev' ? -1 : 1), queuedDirection);
+        }
+      }, 1600);
     };
 
     const restartAuto = () => {

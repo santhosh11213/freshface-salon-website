@@ -36,23 +36,29 @@ function renderFilters(groups) {
 function renderCards(groups) {
   document.getElementById('cardsGrid').innerHTML = groups.map((group, index) => `
     <article class="service-card reveal-child" data-cat="${escapeHtml(group.title)}">
-      <div class="card-index">${String(index + 1).padStart(2, '0')} — ${escapeHtml(group.short || group.title)}</div>
-      <h2 class="card-title">${escapeHtml(group.title)}</h2>
-      <p class="card-desc">${escapeHtml(group.description)}</p>
-      <span class="card-tag">${escapeHtml(page.tag)}</span>
-      <button class="accordion-toggle" type="button">
-        View Services
-        <span class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
-        </span>
-      </button>
+      <div class="service-card-main">
+        <div class="service-card-copy">
+          <div class="card-index">${String(index + 1).padStart(2, '0')} - ${escapeHtml(group.short || group.title)}</div>
+          <h2 class="card-title">${escapeHtml(group.title)}</h2>
+          <p class="card-desc">${escapeHtml(group.description)}</p>
+          <span class="card-tag">${escapeHtml(page.tag)}</span>
+        </div>
+        <button class="accordion-toggle" type="button" aria-expanded="false">
+          <span>View Services</span>
+          <span class="arrow" aria-hidden="true">
+            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
+          </span>
+        </button>
+      </div>
       <div class="accordion-body">
-        ${group.services.map(service => `
-          <div class="service-row">
-            <span class="svc-name">${escapeHtml(service.name)}</span>
-            <span class="svc-dur">${escapeHtml(service.duration)}</span>
-          </div>
-        `).join('')}
+        <div class="accordion-inner">
+          ${group.services.map(service => `
+            <div class="service-row">
+              <span class="svc-name">${escapeHtml(service.name)}</span>
+              <span class="svc-dur">${escapeHtml(service.duration)}</span>
+            </div>
+          `).join('')}
+        </div>
       </div>
     </article>
   `).join('');
@@ -60,10 +66,12 @@ function renderCards(groups) {
   document.getElementById('cardsGrid').addEventListener('click', (event) => {
     const button = event.target.closest('.accordion-toggle');
     if (!button) return;
-    const body = button.nextElementSibling;
+    const card = button.closest('.service-card');
+    const body = card.querySelector('.accordion-body');
     const isOpen = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     button.classList.toggle('open', !isOpen);
+    button.setAttribute('aria-expanded', String(!isOpen));
   });
 
   if (window.FreshFaceAnimations) {
