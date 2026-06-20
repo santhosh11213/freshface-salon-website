@@ -22,6 +22,8 @@ export default defineConfig({
         assetFileNames: assetInfo => {
           const originalName = assetInfo.originalFileNames?.[0] || assetInfo.names?.[0] || assetInfo.name || '';
           if (originalName.startsWith('interiors/')) return 'interiors/[name][extname]';
+          if (originalName.startsWith('gallery/')) return 'gallery/[name][extname]';
+          if (originalName.startsWith('stylist-images/')) return 'stylist-images/[name][extname]';
           if (originalName.startsWith('FF logo/')) return 'FF logo/[name][extname]';
           return '[name][extname]';
         }

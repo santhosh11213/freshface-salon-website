@@ -481,6 +481,136 @@
       .outlets,
       .form-section { grid-template-columns: 1fr; }
     }
+
+    /* CONTACT PAGE PREMIUM ANIMATIONS */
+    .ff-scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 3000;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: linear-gradient(90deg, var(--green-lite), rgba(126,185,63,.5));
+      box-shadow: 0 0 16px rgba(168,230,61,.45);
+      pointer-events: none;
+    }
+
+    .ff-fade-up {
+      opacity: 0;
+      transform: translate3d(0, 32px, 0);
+      transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
+
+    .ff-fade-up.ff-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .ff-split-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translate3d(0, 105%, 0);
+      transition: opacity .72s cubic-bezier(.22,1,.36,1), transform .72s cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
+
+    .ff-split-ready.ff-visible .ff-split-word {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: calc(var(--word-index, 0) * 70ms);
+    }
+
+    .ff-fade-up.ff-visible .ff-split-word {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: calc(var(--word-index, 0) * 70ms);
+    }
+
+    .divider.ff-line-draw {
+      position: relative;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .divider.ff-line-draw::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, var(--green-lite), rgba(126,185,63,.35));
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform .95s cubic-bezier(.22,1,.36,1);
+    }
+
+    .divider.ff-line-draw.ff-visible::before {
+      transform: scaleX(1);
+    }
+
+    .outlet-card,
+    .booking-form,
+    .fact,
+    .hours-row {
+      transition: transform .32s cubic-bezier(.22,1,.36,1), border-color .32s ease, box-shadow .32s ease;
+      will-change: transform;
+    }
+
+    .outlet-card.ff-slide-left,
+    .form-left.ff-slide-left {
+      opacity: 0;
+      transform: translate3d(-46px, 0, 0);
+    }
+
+    .outlet-card.ff-slide-right,
+    .booking-form.ff-slide-right {
+      opacity: 0;
+      transform: translate3d(46px, 0, 0);
+    }
+
+    .outlet-card.ff-visible,
+    .form-left.ff-visible,
+    .booking-form.ff-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: opacity .82s cubic-bezier(.22,1,.36,1), transform .82s cubic-bezier(.22,1,.36,1), border-color .32s ease, box-shadow .32s ease;
+    }
+
+    .outlet-card:hover,
+    .booking-form:hover,
+    .fact:hover,
+    .hours-row:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168,230,61,.72);
+      box-shadow: 0 18px 44px rgba(0,0,0,.28), 0 0 0 1px rgba(168,230,61,.1);
+    }
+
+    .outlet-card.ff-visible:hover,
+    .booking-form.ff-visible:hover {
+      transform: translateY(-6px);
+    }
+
+    .corner-num.ff-counting,
+    .corner-num.ff-counted {
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ff-scroll-progress,
+      .ff-fade-up,
+      .ff-split-word,
+      .divider.ff-line-draw::before,
+      .outlet-card.ff-slide-left,
+      .outlet-card.ff-slide-right,
+      .form-left.ff-slide-left,
+      .booking-form.ff-slide-right {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -804,6 +934,148 @@
     </div>
   </footer>
 
+<script>
+(function () {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setupProgressBar() {
+    const bar = document.createElement('div');
+    bar.className = 'ff-scroll-progress';
+    document.body.appendChild(bar);
+
+    function update() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      bar.style.transform = `scaleX(${progress})`;
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+
+  function splitHeadline() {
+    const headline = document.querySelector('.hero-left h1');
+    if (!headline || headline.dataset.ffSplitReady === 'true') return;
+    headline.dataset.ffSplitReady = 'true';
+    headline.classList.add('ff-split-ready');
+    let index = 0;
+
+    function splitNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const fragment = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'ff-split-word';
+          span.style.setProperty('--word-index', index++);
+          span.textContent = part;
+          fragment.appendChild(span);
+        });
+        node.replaceWith(fragment);
+        return;
+      }
+      Array.from(node.childNodes).forEach(splitNode);
+    }
+
+    Array.from(headline.childNodes).forEach(splitNode);
+  }
+
+  function animateCounter(el) {
+    if (el.dataset.ffCounted === 'true') return;
+    el.dataset.ffCounted = 'true';
+    el.classList.add('ff-counting');
+    const finalText = el.textContent.trim();
+    const finalValue = parseInt(finalText, 10);
+    const width = finalText.length;
+    if (!Number.isFinite(finalValue)) return;
+
+    if (prefersReduced) {
+      el.textContent = finalText;
+      el.classList.add('ff-counted');
+      return;
+    }
+
+    const duration = 950;
+    const start = performance.now();
+
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.round(finalValue * eased);
+      el.textContent = String(value).padStart(width, '0');
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = finalText;
+        el.classList.add('ff-counted');
+      }
+    }
+
+    el.textContent = ''.padStart(width, '0');
+    requestAnimationFrame(tick);
+  }
+
+  function observeAnimations() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('ff-visible');
+        if (entry.target.classList.contains('corner-num')) animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('.hero, .outlets, .form-section, footer').forEach(el => {
+      el.classList.add('ff-fade-up');
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.divider').forEach(el => {
+      el.classList.add('ff-line-draw');
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.outlet-card').forEach((el, index) => {
+      el.classList.add(index % 2 === 0 ? 'ff-slide-left' : 'ff-slide-right');
+      observer.observe(el);
+    });
+
+    const formLeft = document.querySelector('.form-left');
+    const bookingForm = document.querySelector('.booking-form');
+    if (formLeft) {
+      formLeft.classList.add('ff-slide-left');
+      observer.observe(formLeft);
+    }
+    if (bookingForm) {
+      bookingForm.classList.add('ff-slide-right');
+      observer.observe(bookingForm);
+    }
+
+    document.querySelectorAll('.corner-num').forEach(el => observer.observe(el));
+  }
+
+  function initSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  splitHeadline();
+  setupProgressBar();
+  observeAnimations();
+  initSmoothAnchors();
+})();
+</script>
 <script type="module" src="/freshface-theme.js"></script>
 </body>
 </html>

@@ -79,7 +79,24 @@ function renderCards(groups) {
   }
 }
 
+function renderBackButton() {
+  const button = document.createElement('button');
+  button.className = 'service-back-btn';
+  button.type = 'button';
+  button.setAttribute('aria-label', 'Go back to previous page');
+  button.textContent = '<';
+  button.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    window.location.href = '/services/index.html';
+  });
+  document.body.insertBefore(button, document.body.firstChild);
+}
+
 if (page) {
+  renderBackButton();
   document.title = `FreshFace - ${page.title} Services`;
   document.getElementById('categoryName').textContent = page.title;
   document.getElementById('heroTitle').innerHTML = `${escapeHtml(page.title)} <em>Services</em>`;

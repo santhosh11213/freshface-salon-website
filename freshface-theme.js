@@ -161,7 +161,7 @@
     .ff-common-logo,
     .ff-common-footer-logo {
       color: var(--cream);
-      font-family: var(--display, 'Fraunces', serif);
+      font-family: var(--display, 'Fraunces', serif) !important;
       font-weight: 700;
       line-height: 1;
       text-decoration: none;
@@ -214,7 +214,9 @@
       100% { opacity: 0; }
     }
 
-    body > nav .logo {
+    body > nav .logo,
+    header:not(.ff-common-header) .logo,
+    .logo-wrap .logo {
       font-family: var(--display) !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
