@@ -73,7 +73,7 @@ nav{
 .btn-book:hover{background:var(--green-dark);transform:translateY(-2px);}
 .service-back-btn{
   position:fixed;
-  top:118px;
+  top:142px;
   left:22px;
   z-index:1200;
   width:42px;
@@ -318,7 +318,7 @@ footer p{color:var(--gray);font-size:.9rem;}
   nav{align-items:flex-start;gap:16px;flex-direction:column;}
   .nav-links{flex-wrap:wrap;gap:14px;}
   .service-back-btn{
-    top:84px;
+    top:116px;
     left:14px;
     width:38px;
     height:38px;
