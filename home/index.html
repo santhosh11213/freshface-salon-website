@@ -768,13 +768,21 @@
     position:relative;
   }
   .map-box iframe{width:100%;height:100%;border:0;display:block;}
-  .map-branch-badge{
-    position:absolute;top:12px;left:12px;z-index:2;
-    background:rgba(13,13,13,.82);backdrop-filter:blur(6px);
-    border:1px solid rgba(141,196,85,.45);
-    color:var(--green);font-size:.72rem;font-weight:800;
-    letter-spacing:.1em;text-transform:uppercase;
-    padding:6px 12px;border-radius:999px;pointer-events:none;
+  .map-overlay-link{
+    position:absolute;
+    top:8px;
+    left:8px;
+    z-index:3;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:7px 10px;
+    border-radius:3px;
+    background:#fff;
+    color:#1a73e8;
+    font-size:.82rem;
+    font-weight:700;
+    box-shadow:0 1px 4px rgba(0,0,0,.24);
   }
   .map-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -950,6 +958,27 @@
     .services-head{flex-direction:column;align-items:flex-start;}
   }
   @media (max-width:680px){
+    .hero{
+      gap:28px;
+      overflow:visible;
+      padding-bottom:42px;
+    }
+    .hero-visual-wrap{
+      order:-1;
+      width:100%;
+      margin-bottom:4px;
+      z-index:2;
+      transform:none !important;
+    }
+    .hero-visual{
+      aspect-ratio:1/1;
+      min-height:300px;
+      overflow:hidden;
+    }
+    .hero-feature-img{
+      object-fit:cover;
+      object-position:center;
+    }
     .nav-links{
       position:absolute;top:100%;left:0;right:0;background:var(--charcoal);
       flex-direction:column;padding:20px 6vw;gap:20px;border-bottom:1px solid var(--line);
@@ -1464,7 +1493,7 @@
       <h4 class="outlet-branch-label">Kumbakonam</h4>
       <div class="map-wrap">
         <div class="map-box">
-          <span class="map-branch-badge">Kumbakonam Branch</span>
+          <a class="map-overlay-link" href="https://maps.app.goo.gl/8uLWPd3qbzicV3xW9" target="_blank" rel="noopener noreferrer">Open in Maps</a>
           <iframe
             title="FreshFace Kumbakonam Town Branch on Google Maps"
             src="https://maps.google.com/maps?q=10.960376,79.3787247&amp;hl=en&amp;z=17&amp;output=embed"
@@ -1636,6 +1665,15 @@
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobileViewport = window.matchMedia('(max-width: 760px)').matches;
+  const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  const isReload = navEntry ? navEntry.type === 'reload' : performance.navigation && performance.navigation.type === 1;
+  const shouldResetBookingHash = isMobileViewport && isReload && window.location.hash === '#booking-section';
+
+  if (shouldResetBookingHash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
+  }
 
   // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
@@ -2043,7 +2081,7 @@
     });
   });
 
-  if (window.location.hash === '#booking-section') {
+  if (window.location.hash === '#booking-section' && !shouldResetBookingHash) {
     setTimeout(() => focusBookingForm(false), 350);
   }
 
@@ -2127,23 +2165,23 @@
       timeStyle: 'short'
     }).format(new Date());
     const messageLines = [
-      '🗓️ *New Appointment Booking*',
-      '──────────────────────────',
-      '👤 *Name:* ' + name,
-      '📞 *Mobile:* ' + phone,
-      '🏪 *Outlet:* ' + branch,
-      '✂️ *Service:* ' + serviceCategory,
-      '📅 *Date:* ' + appointmentDate,
-      '🕐 *Time:* ' + appointmentTime,
-      '──────────────────────────'
+      '*New Appointment Booking*',
+      '--------------------------',
+      '*Name:* ' + name,
+      '*Mobile:* ' + phone,
+      '*Outlet:* ' + branch,
+      '*Service:* ' + serviceCategory,
+      '*Date:* ' + appointmentDate,
+      '*Time:* ' + appointmentTime,
+      '--------------------------'
     ];
 
-    if (description) messageLines.push('📋 *Description:* ' + description);
-    if (email) messageLines.push('📧 *Email:* ' + email);
+    if (description) messageLines.push('*Description:* ' + description);
+    if (email) messageLines.push('*Email:* ' + email);
 
     messageLines.push(
-      '──────────────────────────',
-      '⏱️ Booked at: ' + bookedAt
+      '--------------------------',
+      'Booked at: ' + bookedAt
     );
 
     const whatsappUrl = 'https://wa.me/' + branchNumbers[branch] + '?text=' + encodeURIComponent(messageLines.join('\n'));

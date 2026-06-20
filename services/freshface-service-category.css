@@ -82,7 +82,7 @@ nav{
   overflow:hidden;
   white-space:nowrap;
 }
-.ticker-inner{display:inline-block;animation:ticker 28s linear infinite;}
+.ticker-inner{display:inline-block;animation:ticker 22s linear infinite;}
 .ticker-inner span{margin:0 48px;}
 @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .hero{
